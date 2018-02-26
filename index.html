@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Papper Scissors</title>
+	<script>
+		// 1. Create a computer play function with random rock, paper, scissors.
+		// 2. Write a player single function. Compare computer and user play.
+		//		2.1 Function mas be case insensitive.
+		//		2.2 The results must be display.		
+	let makeChoice ="";	
+	let computerWins =0;
+	let userWins =0;
+	function computerPlay(){
+		let computerChoice = "";
+		const computerRandom = Math.random();
+			if(computerRandom >=0 && computerRandom < 0.33){
+				computerChoice = "ROCK";
+			}else if(computerRandom >=0.33 && computerRandom <= 0.66){
+				computerChoice = "PAPER"; 
+			}else{
+				computerChoice = "SCISSORS";
+			}
+			return computerChoice;
+		}
+		
+
+		function playRound(playerSelection, ComputerSelection){
+			makeChoice = prompt("Please choose Rock, Paper or Scissors").toUpperCase();
+			if (makeChoice == computerPlay()){
+				alert(`You choose the same! Both choose ${makeChoice}!`);
+			} else if(( makeChoice === "PAPER" && computerPlay()=== "ROCK" ) || (makeChoice === "ROCK" && computerPlay() === "SCISSORS") || (makeChoice=== "SCISSORS" && computerPlay()=== "PAPER")) {
+				alert(`You loose! ${computerPlay()} beats ${makeChoice}`);
+				computerWins ++;
+			}else {
+				alert(`You win! ${makeChoice} beats ${computerPlay()}`);
+				userWins++;
+			}
+		}
+
+
+	
+	</script>
+</head>
+<body>
+  
+</body>
+</html>
