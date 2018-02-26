@@ -10,6 +10,8 @@
 	let makeChoice ="";	
 	let computerWins =0;
 	let userWins =0;
+	let draws = 0;
+	let count =0;
 	function computerPlay(){
 		let computerChoice = "";
 		const computerRandom = Math.random();
@@ -25,19 +27,27 @@
 		
 
 		function playRound(playerSelection, ComputerSelection){
+			const computerRandom = computerPlay()
 			makeChoice = prompt("Please choose Rock, Paper or Scissors").toUpperCase();
-			if (makeChoice == computerPlay()){
+			if (makeChoice === computerRandom){
 				alert(`You choose the same! Both choose ${makeChoice}!`);
-			} else if(( makeChoice === "PAPER" && computerPlay()=== "ROCK" ) || (makeChoice === "ROCK" && computerPlay() === "SCISSORS") || (makeChoice=== "SCISSORS" && computerPlay()=== "PAPER")) {
-				alert(`You loose! ${computerPlay()} beats ${makeChoice}`);
+				draws ++;
+			} else if(( makeChoice === "PAPER" && computerRandom=== "SCISSORS" ) || (makeChoice === "ROCK" && computerRandom === "PAPER") || (makeChoice=== "SCISSORS" && computerRandom=== "ROCK")) {
+				alert(`You loose! ${computerRandom} beats ${makeChoice}`);
 				computerWins ++;
 			}else {
-				alert(`You win! ${makeChoice} beats ${computerPlay()}`);
+				alert(`You win! ${makeChoice} beats ${computerRandom}`);
 				userWins++;
 			}
 		}
 
-
+		function game(){
+			while (count <5){
+				playRound();
+				count ++;
+			}
+			alert(`The final results: You got ${userWins} wins, the computer got ${computerWins} and there were ${draws} draws.`)
+		}
 	
 	</script>
 </head>
